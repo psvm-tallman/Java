@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SubnetMaskCal {
+public class Subnetting {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -13,10 +13,19 @@ public class SubnetMaskCal {
         String subnetMask = calculateSubnetMask(subnetBits);
         String networkAddress = calculateNetworkAddress(ipAddress, subnetMask);
         String broadcastAddress = calculateBroadcastAddress(networkAddress, subnetMask);
+        String firstNetworkAddress = calculateFirstNetworkAddress(networkAddress);
+        String lastNetworkAddress = calculateLastNetworkAddress(broadcastAddress);
 
         System.out.println("Subnet Mask: " + subnetMask);
+        System.out.println("Subnet Mask (Binary): " + toBinary(subnetMask));
         System.out.println("Network Address: " + networkAddress);
+        System.out.println("Network Address (Binary): " + toBinary(networkAddress));
         System.out.println("Broadcast Address: " + broadcastAddress);
+        System.out.println("Broadcast Address (Binary): " + toBinary(broadcastAddress));
+        System.out.println("First Usable Address: " + firstNetworkAddress);
+        System.out.println("First Usable Address (Binary): " + toBinary(firstNetworkAddress));
+        System.out.println("Last Usable Address: " + lastNetworkAddress);
+        System.out.println("Last Usable Address (Binary): " + toBinary(lastNetworkAddress));
 
         scanner.close();
     }
@@ -52,5 +61,27 @@ public class SubnetMaskCal {
         }
 
         return String.format("%d.%d.%d.%d", broadcastParts[0], broadcastParts[1], broadcastParts[2], broadcastParts[3]);
+    }
+
+    public static String calculateFirstNetworkAddress(String networkAddress) {
+        String[] parts = networkAddress.split("\\.");
+        parts[3] = String.valueOf(Integer.parseInt(parts[3]) + 1);
+        return String.join(".", parts);
+    }
+
+    public static String calculateLastNetworkAddress(String broadcastAddress) {
+        String[] parts = broadcastAddress.split("\\.");
+        parts[3] = String.valueOf(Integer.parseInt(parts[3]) - 1);
+        return String.join(".", parts);
+    }
+
+    public static String toBinary(String ipAddress) {
+        String[] parts = ipAddress.split("\\.");
+        StringBuilder binary = new StringBuilder();
+        for (String part : parts) {
+            String binaryPart = String.format("%8s", Integer.toBinaryString(Integer.parseInt(part))).replace(' ', '0');
+            binary.append(binaryPart).append(".");
+        }
+        return binary.substring(0, binary.length() - 1);
     }
 }
