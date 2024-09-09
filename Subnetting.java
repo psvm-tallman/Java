@@ -4,7 +4,7 @@ public class Subnetting {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter an IP address (e.g., 192.168.1.0): ");
+        System.out.print("Enter an IP address : ");
         String ipAddress = scanner.nextLine();
 
         System.out.print("Enter the number of subnet bits: ");
