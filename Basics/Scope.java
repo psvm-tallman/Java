@@ -1,3 +1,5 @@
+package Basics;
+
 public class Scope {
     public static void main(String[] args) {
         int num1 = 10;

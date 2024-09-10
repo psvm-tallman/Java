@@ -1,3 +1,5 @@
+package CN;
+
 import java.util.Scanner;
 
 public class Subnetting {

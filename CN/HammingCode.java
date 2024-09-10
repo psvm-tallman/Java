@@ -1,3 +1,5 @@
+package CN;
+
 import java.util.Scanner;
 
 public class HammingCode {
@@ -78,7 +80,7 @@ public class HammingCode {
         String data = scanner.nextLine();
 
         if (!data.matches("[01]+")) {
-            System.out.println("Invalid input. Please enter a binary string (0s and 1s only).");
+            System.out.println("Invalid Basics.input. Please enter a binary string (0s and 1s only).");
             scanner.close();
             return;
         }
