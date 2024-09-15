@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/linear-search/linear-search.iml" filepath="$PROJECT_DIR$/linear-search/linear-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/tallman.iml" filepath="$PROJECT_DIR$/tallman.iml" />
     </modules>
   </component>
