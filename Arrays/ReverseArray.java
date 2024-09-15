@@ -1,5 +1,4 @@
 package Arrays;
-
 import java.util.Arrays;
 
 public class ReverseArray {
@@ -7,8 +6,8 @@ public class ReverseArray {
         int[] arr = {1,2,3,4,5};
         System.out.println(Arrays.toString(arr));
         reverse(arr);
+        System.out.print("reverse array: ");
         System.out.println(Arrays.toString(arr));
-        System.out.println("reverse array");
     }
 
     static void reverse(int[] arr){
@@ -20,13 +19,11 @@ public class ReverseArray {
             start++;
             end--;
         }
-
     }
 
     static void swap(int[] arr, int index1, int index2){
         int temp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = temp;
-
     }
 }
